@@ -1,0 +1,27 @@
+<?php echo 1111111111111111; exit; ?><div class="block block-layered-nav block-browse-by">
+
+ <div class="category_nav_wrapper">
+    <div class="block-title">
+        <strong>
+          <span>
+            <?php echo $this->__('Shop by') ?>
+            <?php echo $this->getLabel() ?>
+          </span>
+        </strong>
+    </div>
+
+ </div>
+    
+    <div class="block-content">
+        <div class="dropdown">
+            <select id="browse_by_dropdown">
+                <?php foreach ($this->getItems() as $_item): ?>
+                    <option <?php echo $this->getCurrentAttributeValue() == $_item['value'] ? ' selected="selected"' : '' ?> value="<?php echo $this->getBrowseUrl($_item['value']) ?>">
+                        <?php echo $_item['label'] ?>
+                    </option>
+                <?php endforeach ?>
+            </select>
+            <button class="button" title="Subscribe" type="submit" onclick="document.location = $('browse_by_dropdown').getValue();return false;"><span><span>GO</span></span></button>
+        </div>
+    </div>
+</div>

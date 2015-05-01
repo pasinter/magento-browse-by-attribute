@@ -1,0 +1,30 @@
+<div class="block block-layered-nav">
+
+ <div class="category_nav_wrapper">
+    <div class="block-title">
+        <strong>
+          <span>
+            <?php echo $this->__('Browse By...') ?>
+            <span><?php echo $this->getLabel() ?></span>
+          </span>
+        </strong>
+    </div>
+
+ </div>
+    
+    <div class="block-content">
+        <div class="narrow-by">
+            <dl id="browse_by_<?php echo $this->getBrowseAttribute()->getName() ?>">
+                <dd>
+                    <ol>
+                    <?php foreach ($this->getItems() as $_item): ?>
+                        <li class="<?php echo $this->getCurrentAttributeValue() == $_item->getValue() ? 'current' : '' ?>">
+                            <a href="<?php echo $this->getBrowseUrl($_item->getValue()) ?>"<?php if ($this->isValueActive($_item->getValue())): ?> class="active"<?php endif ?>><?php echo $_item->getLabel() ?></a>
+                        </li>
+                    <?php endforeach ?>
+                    </ol>
+                </dd>
+            </dl><script type="text/javascript">decorateDataList('browse_by_<?php echo $this->getBrowseAttribute()->getName() ?>')</script>
+        </div>
+    </div>
+</div>

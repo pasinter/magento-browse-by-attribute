@@ -1,0 +1,15 @@
+<?php
+$items = $this->getItems();
+$items_count = count($items);
+$i = 1;
+?>
+<ul class="level0">
+<?php foreach ($items as $_item): ?>
+    <li class="level1<?php echo $items_count == $i++ ? ' last' : '' ?>" onmouseout="toggleMenu(this,0)" onmouseover="toggleMenu(this,1)">
+        <a href="<?php echo $this->getBrowseUrl($_item->getValue()) ?>"<?php if ($this->isValueActive($_item->getValue())): ?> class="active"<?php endif ?>>
+        <span><?php echo $_item->getLabel() ?></span></a>
+    </li>
+<?php endforeach ?>
+</ul>
+
+

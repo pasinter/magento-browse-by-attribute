@@ -10,6 +10,8 @@ class Pasinter_BrowseBy_Block_Attribute_Navigation extends Pasinter_BrowseBy_Blo
      */
     protected $_filter;
     protected $_label;
+    
+    protected $displayLabel = true;
 
     /**
      * Called from layout action. Sets attribue for browse options
@@ -50,7 +52,6 @@ class Pasinter_BrowseBy_Block_Attribute_Navigation extends Pasinter_BrowseBy_Blo
      */
     public function getItems()
     {
-
         $attribute = $this->getBrowseAttribute();
 
         $product = Mage::getModel('catalog/product');
