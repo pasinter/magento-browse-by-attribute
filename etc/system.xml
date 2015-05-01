@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <sections>
+        <catalog>
+            <groups>
+                <browse_by translate="label">
+                    <label>Browse By Attribute Options</label>
+                    <frontend_type>text</frontend_type>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <url_prefix translate="label">
+                            <label>URL Prefix</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </url_prefix>
+                    </fields>
+                </browse_by>
+            </groups>
+        </catalog>
+    </sections>
+</config>
