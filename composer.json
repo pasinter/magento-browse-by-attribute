@@ -1,0 +1,15 @@
+{
+    "name":"pasinter/magento-browse-by-attribute",
+    "type":"magento-module",
+    "license":"MIT",
+    "homepage":"https://github.com/pasinter/magento-browse-by-attribute",
+	"authors":[
+        {
+            "name":"pasinter"
+        }
+    ],
+    "description":"Magento Browse by Attribute Extension",
+    "require":{
+        "magento-hackathon/magento-composer-installer":"*"
+    }
+}
