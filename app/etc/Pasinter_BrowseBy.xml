@@ -4,7 +4,7 @@
     <modules>
         <Pasinter_BrowseBy>
             <active>true</active>
-            <codePool>local</codePool>
+            <codePool>community</codePool>
         </Pasinter_BrowseBy>
     </modules>
 </config>
