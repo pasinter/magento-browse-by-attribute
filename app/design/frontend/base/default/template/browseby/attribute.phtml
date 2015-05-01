@@ -1,0 +1,12 @@
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="category-title">
+    <h2><?php echo $this->helper('browseby')->__("%s: %s", $this->getCurrentAttributeLabel(), $this->getCurrentAttributeText()) ?></h2>
+</div>
+<?php if($this->getCmsBlockHtml()): ?>
+<div id="category_cms_block" class="<?php echo $this->getCmsBlockId() ?>">
+	<?php echo $this->getCmsBlockHtml() ?>
+	<div class="clear"></div>
+</div>
+<?php endif; ?>
+
+<?php echo $this->getProductListHtml() ?>

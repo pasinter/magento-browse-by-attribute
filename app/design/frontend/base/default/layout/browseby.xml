@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout version="0.1.0">
+    <default>
+        
+    </default>
+    <browseby_attribute_browse>
+        <reference name="content">
+            <block type="browseby/attribute" name="category.products" template="browseby/attribute.phtml">
+                <block type="browseby/product_list" name="product_list" template="catalog/product/list.phtml">
+                    <!-- <action method="addReviewSummaryTemplate"><type>default</type><template>review/helper/su.phtml</template></action> -->
+                    <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                        <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                        <!-- The following code shows how to set your own pager increments -->
+                            <action method="setDefaultListPerPage"><limit>4</limit></action>
+                            <action method="setDefaultGridPerPage"><limit>8</limit></action>
+                            <action method="addPagerLimit"><mode>list</mode><limit>2</limit></action>
+                            <action method="addPagerLimit"><mode>list</mode><limit>4</limit></action>
+                            <action method="addPagerLimit"><mode>list</mode><limit>6</limit></action>
+                            <action method="addPagerLimit"><mode>list</mode><limit>8</limit></action>
+                            <action method="addPagerLimit" translate="label"><mode>list</mode><limit>all</limit><label>All</label></action>
+                            <action method="addPagerLimit"><mode>grid</mode><limit>4</limit></action>
+                            <action method="addPagerLimit"><mode>grid</mode><limit>8</limit></action>
+                            <action method="addPagerLimit"><mode>grid</mode><limit>16</limit></action>
+                            <action method="addPagerLimit"><mode>grid</mode><limit>all</limit><label>All</label></action>
+                    </block>
+                    <!--
+                    <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                        <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                    </block>
+                    
+                    <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+                    <action method="addPriceBlockType"><type>bundle</type><block>bundle/catalog_product_price</block><template>bundle/catalog/product/price.phtml</template></action>
+                    -->
+                </block>
+            </block>
+
+        </reference>
+
+
+        <reference name="left">
+            <remove name="catalog.compare.sidebar" />
+
+            <block type="browseby/attribute_navigation" name="browseby.attribute.nav.manufacturer" after="catalog.leftnav" template="browseby/attribute/dropdown.phtml">
+                <action method="setBrowseAttribute">
+                    <code>manufacturer</code>
+                </action>
+                <action method="setLabel">
+                    <label>Brand</label>
+                </action>
+                
+            </block>
+
+        </reference>
+    </browseby_attribute_browse>
+</layout>
