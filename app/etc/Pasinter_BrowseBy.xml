@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <modules>
+        <Pasinter_BrowseBy>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Pasinter_BrowseBy>
+    </modules>
+</config>
