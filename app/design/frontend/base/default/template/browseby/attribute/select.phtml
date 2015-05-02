@@ -1,0 +1,11 @@
+<select id="browse_by_dropdown">
+    <?php if($this->getLabelAsOption()) : ?>
+    <option><?php echo $this->getLabelAsOption(); ?></option>
+    <?php endif; ?>
+
+    <?php foreach ($this->getItems() as $_item): ?>
+        <option <?php echo $this->getCurrentAttributeValue() == $_item['value'] ? ' selected="selected"' : '' ?> value="<?php echo $this->getBrowseUrl($_item['value']) ?>">
+            <?php echo $_item['label'] ?>
+        </option>
+    <?php endforeach ?>
+</select>
