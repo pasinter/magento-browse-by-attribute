@@ -11,8 +11,36 @@ class Pasinter_BrowseBy_Block_Attribute_Navigation extends Pasinter_BrowseBy_Blo
     protected $_filter;
     protected $_label;
     
+    /**
+     *
+     * @var bool
+     */
     protected $displayLabel = true;
 
+    /**
+     * If set, this option will be added as first option in the dropdown 
+     * @var string
+     */
+    protected $labelAsOption;
+    
+    /**
+     * 
+     * @param string $labelAsOption
+     */
+    public function setLabelAsOption($labelAsOption)
+    {
+        $this->labelAsOption = $labelAsOption;
+    }
+    
+    /**
+     * 
+     * @return string|null
+     */
+    public function getLabelAsOption()
+    {
+        return $this->labelAsOption;
+    }
+    
     /**
      * Called from layout action. Sets attribue for browse options
      *
@@ -37,7 +65,18 @@ class Pasinter_BrowseBy_Block_Attribute_Navigation extends Pasinter_BrowseBy_Blo
         if ($this->_label) {
             return $this->_label;
         }
-        return $this->getBrowseAttribute()->getFrontendLabel();
+        return $this->__('Shop by ') . $this->getBrowseAttribute()->getFrontendLabel();
+    }
+    
+    public function setDisplayLabel($displayLabel) 
+    {
+        $this->displayLabel = $displayLabel;
+        return $this;
+    }
+    
+    public function getDisplayLabel()
+    {
+        return $this->displayLabel;
     }
 
     public function setLabel($label)

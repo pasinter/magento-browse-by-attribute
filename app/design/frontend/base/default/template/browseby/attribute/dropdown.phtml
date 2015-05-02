@@ -1,20 +1,24 @@
 <div class="block block-layered-nav block-browse-by">
-
+ 
+ <?php if ($this->getDisplayLabel()) : ?>
  <div class="category_nav_wrapper">
     <div class="block-title">
         <strong>
           <span>
-            <?php echo $this->__('Shop by') ?>
             <?php echo $this->getLabel() ?>
           </span>
         </strong>
     </div>
-
  </div>
+<?php endif; ?>
     
     <div class="block-content">
         <div class="dropdown">
             <select id="browse_by_dropdown">
+                <?php if($this->getLabelAsOption()) : ?>
+                <option><?php echo $this->getLabelAsOption(); ?></option>
+                <?php endif; ?>
+                
                 <?php foreach ($this->getItems() as $_item): ?>
                     <option <?php echo $this->getCurrentAttributeValue() == $_item['value'] ? ' selected="selected"' : '' ?> value="<?php echo $this->getBrowseUrl($_item['value']) ?>">
                         <?php echo $_item['label'] ?>
