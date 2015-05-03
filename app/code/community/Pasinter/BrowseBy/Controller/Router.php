@@ -32,6 +32,10 @@ class Pasinter_BrowseBy_Controller_Router extends Mage_Core_Controller_Varien_Ro
                     'code' => $parts[1],
                     'value' => $parts[2])
         );
+        
+//        Mage::register('current_attribute', $parts[1]);
+//        Mage::register('current_attribute_value', $attrValue);
+            
         $request->setAlias(
                 Mage_Core_Model_Url_Rewrite::REWRITE_REQUEST_PATH_ALIAS, $identifier
         );

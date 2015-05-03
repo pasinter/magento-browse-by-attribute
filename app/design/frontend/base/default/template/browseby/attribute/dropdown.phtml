@@ -14,7 +14,7 @@
     
     <div class="block-content">
         <div class="dropdown">
-            <select id="browse_by_dropdown">
+            <select id="browse_by_nav_dropdown">
                 <?php if($this->getLabelAsOption()) : ?>
                 <option><?php echo $this->getLabelAsOption(); ?></option>
                 <?php endif; ?>
@@ -25,7 +25,7 @@
                     </option>
                 <?php endforeach ?>
             </select>
-            <button class="button" title="Subscribe" type="submit" onclick="document.location = $('browse_by_dropdown').getValue();return false;"><span><span>GO</span></span></button>
+            <button class="button" title="Subscribe" type="submit" onclick="document.location = $('browse_by_nav_dropdown').getValue();return false;"><span><span>GO</span></span></button>
         </div>
     </div>
 </div>

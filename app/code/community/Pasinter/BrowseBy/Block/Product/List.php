@@ -8,7 +8,6 @@ class Pasinter_BrowseBy_Block_Product_List extends Mage_Catalog_Block_Product_Li
      *
      * @return Mage_Eav_Model_Entity_Collection_Abstract
      */
-
     protected function _getProductCollection()
     {
         if (is_null($this->_productCollection)) {
@@ -47,8 +46,10 @@ class Pasinter_BrowseBy_Block_Product_List extends Mage_Catalog_Block_Product_Li
                ))
               
                ->addStoreFilter()
+                    
+               ->addAttributeToFilter('manufacturer', array('eq' => $this->getRequest()->getParam('value')));
                
-               ->addIdFilter($this->getFilteredIds())
+               //->addIdFilter($this->getFilteredIds())
 
                
             ;
@@ -62,6 +63,10 @@ class Pasinter_BrowseBy_Block_Product_List extends Mage_Catalog_Block_Product_Li
         return $this->_productCollection;
     }
     
+    /**
+     * 
+     * @deprecated
+     */
     protected function getFilteredIds()
     {
         $attribute = Mage::registry('current_attribute');
@@ -107,44 +112,7 @@ class Pasinter_BrowseBy_Block_Product_List extends Mage_Catalog_Block_Product_Li
             $ids[] = $row['entity_id'];
         }
         
-        //var_dump($ids);
-        
         return $ids;
-    }
-    
-    
-    
-    protected function getFilterByIdsExpression()
-    {
-        $attribute = Mage::registry('current_attribute');
-        $attribute_code = $attribute->getData('attribute_code');
-        $value = Mage::registry('current_attribute_value');
-            
-        $query = "
-            SELECT e.entity_id
-            FROM catalog_product_entity e
-            LEFT JOIN catalog_product_link cpl ON cpl.product_id = e.entity_id AND cpl.link_type_id = 1
-            LEFT JOIN `catalog_product_entity_int` AS `_table_manufacturer` ON (_table_manufacturer.entity_id = e.entity_id) AND (_table_manufacturer.attribute_id='66') AND (_table_manufacturer.value=$value) 
-            
-            WHERE 
-
-            IF (cpl.linked_product_id IS NULL, 
-                    _table_manufacturer.value = $value, 
-
-                    (
-                            SELECT COUNT(le.entity_id) FROM catalog_product_entity le
-                            INNER JOIN catalog_product_link lcpl ON lcpl.linked_product_id = le.entity_id AND lcpl.link_type_id = 1
-                            INNER JOIN `catalog_product_entity_int` AS `_table_manufacturer_linked` ON (_table_manufacturer_linked.entity_id = le.entity_id) 
-                                                    AND (_table_manufacturer_linked.attribute_id= 66 ) AND (_table_manufacturer_linked.value=$value) 
-                            WHERE lcpl.product_id = e.entity_id
-                            -- WHERE 
-                    ) > 0 OR _table_manufacturer.value = $value
-            )
-
-        GROUP BY e.entity_id
-        ";
-        
-        return $query;
     }
     
     

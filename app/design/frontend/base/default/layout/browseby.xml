@@ -39,7 +39,7 @@
 
 
         <reference name="left">
-            <remove name="catalog.compare.sidebar" />
+            <action method="unsetChildren" />
 
             <block type="browseby/attribute_navigation" name="browseby.attribute.nav.manufacturer" after="catalog.leftnav" template="browseby/attribute/dropdown.phtml">
                 <action method="setBrowseAttribute">
