@@ -14,7 +14,3 @@ app/design/frontend/base/default/template/browseby/attribute/select.phtml app/de
 app/design/frontend/base/default/template/browseby/attribute/top.phtml app/design/frontend/base/default/template/browseby/attribute/top.phtml
 app/design/frontend/base/default/template/browseby/attribute.phtml app/design/frontend/base/default/template/browseby/attribute.phtml
 app/etc/modules/Pasinter_BrowseBy.xml app/etc/modules/Pasinter_BrowseBy.xml
-composer.json composer.json
-composer.lock composer.lock
-LICENSE LICENSE
-README.md README.md
